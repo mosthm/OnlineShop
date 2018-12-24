@@ -1,10 +1,12 @@
 package com.example.alifatemeh.onlineshop;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.alifatemeh.onlineshop.Data.LoginUserController;
+import com.example.alifatemeh.onlineshop.Data.OnlineShopAPI;
+import com.example.alifatemeh.onlineshop.Models.MypreferenceManager;
+import com.example.alifatemeh.onlineshop.Models.TokenResponse;
 
 import static android.content.ContentValues.TAG;
 
@@ -97,6 +104,7 @@ public class LoginFragment extends Fragment {
 
     public void onLoginSuccess() {
         btnlogin.setEnabled(true);
+        loginUser();
 //        finish();
     }
 
@@ -133,4 +141,37 @@ public class LoginFragment extends Fragment {
 
         return valid;
     }
+
+
+
+    private void loginUser(){
+        LoginUserController loginUserController = new LoginUserController(loginUserCallback);
+        loginUserController.start(
+                username.getText().toString(),
+                password.getText().toString()
+        );
+
+    }
+
+    OnlineShopAPI.LoginUserCallback loginUserCallback =new OnlineShopAPI.LoginUserCallback() {
+        @Override
+        public void onResponse(boolean successful, String errorDescription, TokenResponse tokenResponse) {
+            if(successful){
+                Toast.makeText(getActivity(),"Login Successfull " + tokenResponse.getAccessToken() ,Toast.LENGTH_SHORT).show();
+
+                MypreferenceManager.getInstance(getActivity()).putUsername(username.getText().toString());
+                MypreferenceManager.getInstance(getActivity()).putAccessToken(tokenResponse.getAccessToken());
+                LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(  new Intent("login_ok") );
+//                loginUser();
+
+            }else {
+                //Toast.makeText(getActivity(),errorMessage,Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override
+        public void onFailure(String cause) {
+
+        }
+    };
 }
