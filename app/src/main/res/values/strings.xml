@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OnlineShop</string>
+    <string name="progress_update_template">%d from %d</string>
 </resources>

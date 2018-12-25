@@ -80,13 +80,55 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundColor" value="ffc3c2" />
-                                      <entry key="foregroundImage" value="C:\Users\AliFatemeh\Desktop\shop_online.jpg" />
+                                      <entry key="foregroundImage" value="C:\Users\AliFatemeh\Desktop\online-shop (2).png" />
+                                      <entry key="outputName" value="ic_shop" />
                                       <entry key="showGrid" value="true" />
                                     </map>
                                   </option>
                                 </PersistentState>
                               </value>
                             </entry>
+                          </map>
+                        </option>
+                      </PersistentState>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </PersistentState>
+          </value>
+        </entry>
+        <entry key="vectorWizard">
+          <value>
+            <PersistentState>
+              <option name="children">
+                <map>
+                  <entry key="vectorAssetStep">
+                    <value>
+                      <PersistentState>
+                        <option name="children">
+                          <map>
+                            <entry key="clipartAsset">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_shop_black_24dp.xml" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                        <option name="values">
+                          <map>
+                            <entry key="color" value="ffc3c2" />
+                            <entry key="height" value="34" />
+                            <entry key="outputName" value="ic_shop_black_24dp" />
+                            <entry key="overrideSize" value="true" />
+                            <entry key="sourceFile" value="C:\Users\AliFatemeh" />
+                            <entry key="width" value="34" />
                           </map>
                         </option>
                       </PersistentState>

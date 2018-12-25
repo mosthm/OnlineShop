@@ -57,4 +57,14 @@ public class MypreferenceManager {
         editor.apply();
     }
     //******************************************************************
+    //******************************************************************
+
+    public String getIdProduct(){
+        return sharedPreferences.getString("idproduct",null);
+    }
+    public  void putIdproduct(String idproduct){
+        //use of editor then write
+        editor.putString("idproduct",idproduct);
+        editor.apply();
+    }
 }
