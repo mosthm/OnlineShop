@@ -34,14 +34,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view =LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.template_product,viewGroup,false);
-
         return new ViewHolder(view);
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
-
         viewHolder.productname.setText(items.get(i).getName());
         viewHolder.productprice.setText(items.get(i).getPrice());
         viewHolder.productimage.setImageURI(Uri.parse(items.get(i).getPhotoUrl()));
@@ -86,6 +84,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             productname=itemView.findViewById(R.id.product_name);
             productprice =itemView.findViewById(R.id.product_price);
             productimage =itemView.findViewById(R.id.product_image);
+            id =itemView.findViewById(R.id.product_id);
 //            onClick(itemView,id);
 
         }

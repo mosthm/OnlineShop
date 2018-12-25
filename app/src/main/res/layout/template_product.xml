@@ -44,6 +44,11 @@
                     android:textSize="@dimen/text_large"
                     app:layout_constraintBottom_toTopOf="@+id/product_price"
                     app:layout_constraintLeft_toRightOf="@id/product_image" />
+            <TextView
+                android:id="@+id/product_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
                 <TextView
                     android:id="@+id/product_price"
                     android:layout_width="wrap_content"

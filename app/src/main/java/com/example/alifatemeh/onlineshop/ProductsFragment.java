@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.alifatemeh.onlineshop.Data.OnSelectedListener;
 import com.example.alifatemeh.onlineshop.Data.OnlineShopAPI;
 import com.example.alifatemeh.onlineshop.Data.ProductsController;
 import com.example.alifatemeh.onlineshop.Models.MypreferenceManager;
@@ -33,7 +34,7 @@ public class ProductsFragment extends Fragment {
     private ProgressBar progressBar;
     private TextView progressUpdate;
     private TextView idRoom;
-//    private OnSelectedListener onSelectedListener;
+    private OnSelectedListener onSelectedListener;
 
     @Nullable
     @Override
@@ -43,27 +44,20 @@ public class ProductsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
 //        View viewtemp =LayoutInflater.from(viewG.getContext())
 //                .inflate(R.layout.template_room,viewGroup,false);
-
         findview(view);
-//        initRoomList();
+        initRoomList();
         //macke object of roomController Class
         ProductsController productsController = new ProductsController(productsCallback);
-        productsController.strat(
-                "bearer "+MypreferenceManager.getInstance(getActivity()).getAccessToken()
-        );
+        productsController.strat("bearer "+MypreferenceManager.getInstance(getActivity()).getAccessToken());
         Log.d("Tag","roomList " + productsList.size());
-
-
     }
 
     private void initRoomList(){
         productAdapter=new ProductAdapter(productsList,getActivity());
         products.setLayoutManager(new LinearLayoutManager(getActivity()));
         products.setAdapter(productAdapter);
-
 //        idRoom=rooms.findViewById(R.id.name);
     }
 
